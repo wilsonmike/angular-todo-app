@@ -1,0 +1,19 @@
+<main class="main-todo">
+  <section class="todo-container">
+    <h1>TODO List</h1>
+    <p>A place to store your todos</p>
+    <ol class="main-list">
+      <li *ngFor="let todo of todos">
+        <div class="list-todos">
+          <button class="complete-button" *ngIf="todo.completed === false">
+            Complete
+          </button>
+          <p class="p-tag" [ngClass]="{ strikethrough: todo.completed }">
+            {{ todo.task }}
+          </p>
+          <button class="delete-btn">X</button>
+        </div>
+      </li>
+    </ol>
+  </section>
+</main>
