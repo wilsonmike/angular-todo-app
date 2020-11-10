@@ -27,6 +27,7 @@ export class TodoComponent implements OnInit {
     },
   ];
   todoSearchTerm: string = '';
+  showIndex: number = null;
   constructor() {}
 
   ngOnInit(): void {}
@@ -36,6 +37,7 @@ export class TodoComponent implements OnInit {
       completed: false,
     };
     this.todos.push(newTask);
+    form.reset();
   };
   // adoptedAnimal = (type: string, index: number): void => {
   //   type === 'cat' ? this.cats.splice(index, 1) : this.dogs.splice(index, 1);
@@ -61,18 +63,13 @@ export class TodoComponent implements OnInit {
   setTodoSearchTerm = (form: NgForm): void => {
     this.todoSearchTerm = form.value.searchTerm;
   };
-  // filterCats = (): Animal[] => {
-  //   if (!this.catSearchTerm) {
-  //     return this.cats;
-  //   } else {
-  //     return this.cats.filter((cat) => {
-  //       let currentCatName = cat.name.toLowerCase().trim();
-  //       return currentCatName.includes(this.catSearchTerm.toLowerCase().trim());
-  //     });
-  //   }
-  // };
 
-  // setCatSearchTerm = (form: NgForm): void => {
-  //   this.catSearchTerm = form.value.searchTerm;
-  // };
+  setShowIndex = (index: number): void => {
+    this.showIndex = index;
+  };
+
+  editTask = (form: NgForm, todo: Todo): void => {
+    todo.task = form.value.edit;
+    this.showIndex = null;
+  };
 }

@@ -57,3 +57,16 @@
   border-radius: 5px;
   height: 25px;
 }
+.save-btn {
+  color: white;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+}
+.edit-input {
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(245, 245, 245);
+  margin-right: 5px;
+}

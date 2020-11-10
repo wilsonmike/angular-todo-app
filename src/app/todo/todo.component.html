@@ -23,9 +23,27 @@
             >
               Complete
             </button>
-            <p class="p-tag" [ngClass]="{ strikethrough: todo.completed }">
+            <p
+              class="p-tag"
+              [ngClass]="{ strikethrough: todo.completed }"
+              (click)="setShowIndex(i)"
+              *ngIf="showIndex !== i"
+            >
               {{ todo.task }}
             </p>
+            <form
+              *ngIf="showIndex === i"
+              #editForm="ngForm"
+              (ngSubmit)="editTask(editForm, todo)"
+            >
+              <input
+                class="edit-input"
+                type="text"
+                name="edit"
+                [ngModel]="todo.task"
+              />
+              <button class="save-btn">Save</button>
+            </form>
           </div>
           <img
             (click)="removeTask(i)"
